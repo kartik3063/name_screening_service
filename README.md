@@ -1,10 +1,10 @@
 # Name Screening Service (Technical Assessment)
 
-## 📌 Project Overview
+##  Project Overview
 
 This service is a robust Node.js implementation designed to solve the "Name Screening" problem. It evaluates incoming user data against a known watchlist to identify potential matches using fuzzy string matching and name normalization techniques.
 
-## 🏗️ Technical Architecture
+##  Technical Architecture
 
 The project is structured with modularity and scalability in mind:
 
@@ -33,14 +33,14 @@ To handle variations in name formatting, the service applies the following trans
 
 The service utilizes a **Levenshtein Distance** algorithm to calculate a similarity score between 0 and 1. This allows the service to detect typos (e.g., "Rahul Sharm" vs "Rahul Sharma") and variations in spelling.
 
-## 📂 File Structure
+##  File Structure
 
 * `data/`: Hierarchical storage for user requests and results.
 * `utils/`: Isolated utility functions for testing and reusability.
 * `watchlist.json`: The database of screened entities.
 * `index.js`: The service controller.
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -52,6 +52,45 @@ The service utilizes a **Levenshtein Distance** algorithm to calculate a similar
 npm install
 
 ```
+## How to Run the Service
+The service is designed as a modular function that processes files from the local filesystem. Follow these steps to execute a screening:
+
+1. Installation
+Ensure you have Node.js installed, then clone the repository and install dependencies:
+
+Bash
+npm install
+2. Prepare the Input Data
+The service expects a specific folder hierarchy to locate the input files:
+
+Create a folder inside data/ for the user (e.g., user123).
+
+Create a subfolder for the specific request (e.g., REQ-3001).
+
+Inside that, create an input/ folder and place an input.json file there.
+
+Example File Path: data/user123/REQ-3001/input/input.json
+
+3. Execution
+The service exports the processRequest function. You can run it by calling it in a separate script or by adding a test execution line at the bottom of index.js:
+
+Example Usage:
+
+JavaScript
+const processRequest = require('./index');
+
+// Usage: processRequest(userId, requestId)
+processRequest('user123', 'REQ-3001');
+Then run the script via terminal:
+
+Bash
+node index.js
+4. Verify Results
+Once the script completes, check the output/ folder generated in your request directory:
+
+data/user123/REQ-3001/output/detailed.json: Contains all matches found and normalization details.
+
+data/user123/REQ-3001/output/consolidated.json: Contains the final match result and timestamp
 
 ### Usage
 
@@ -82,7 +121,7 @@ After processing, the system generates a result like this:
 
 ```
 
-## 🛠️ Future Improvements
+##  Future Improvements
 
 * **Phonetic Matching**: Integrating algorithms like Double Metaphone to catch names that sound similar but are spelled differently.
 * **Performance**: Implementing a database (like MongoDB or PostgreSQL) for the watchlist to handle millions of records more efficiently than a JSON file.
