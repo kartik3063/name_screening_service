@@ -52,9 +52,10 @@ The service is designed as a modular function that processes files from the loca
 1. Installation
 Ensure you have Node.js installed, then clone the repository and install dependencies:
 
-Bash
 npm install
-2. Prepare the Input Data
+
+3. Prepare the Input Data
+
 The service expects a specific folder hierarchy to locate the input files:
 
 Create a folder inside data/ for the user (e.g., user123).
@@ -66,6 +67,7 @@ Inside that, create an input/ folder and place an input.json file there.
 Example File Path: data/user123/REQ-3001/input/input.json
 
 3. Execution
+
 The service exports the processRequest function. You can run it by calling it in a separate script or by adding a test execution line at the bottom of index.js:
 
 Example Usage:
@@ -75,29 +77,16 @@ const processRequest = require('./index');
 
 // Usage: processRequest(userId, requestId)
 processRequest('user123', 'REQ-3001');
-Then run the script via terminal:
-
-Bash
-node index.js
+Then run the script via terminal: node index.js
 
 4. Verify Results
+
 Once the script completes, check the output/ folder generated in your request directory:
 
 data/user123/REQ-3001/output/detailed.json: Contains all matches found and normalization details.
 
 data/user123/REQ-3001/output/consolidated.json: Contains the final match result and timestamp
 
-### Usage
-
-The service exports a `processRequest` function that can be integrated into a larger API or triggered via a script:
-
-```javascript
-const processRequest = require('./index');
-
-// Example: Processes input for user123's request REQ-3001
-processRequest('user123', 'REQ-3001');
-
-```
 
 ## 📊 Sample Output
 
