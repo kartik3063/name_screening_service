@@ -85,6 +85,7 @@ Then run the script via terminal:
 
 Bash
 node index.js
+
 4. Verify Results
 Once the script completes, check the output/ folder generated in your request directory:
 
