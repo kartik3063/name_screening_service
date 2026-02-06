@@ -52,7 +52,7 @@ The service is designed as a modular function that processes files from the loca
 1. Installation
 Ensure you have Node.js installed, then clone the repository and install dependencies:
 
-npm install
+```npm install```
 
 2. Prepare the Input Data
 
@@ -72,12 +72,13 @@ The service exports the processRequest function. You can run it by calling it in
 
 Example Usage:
 
-JavaScript
+```
 const processRequest = require('./index');
 
 // Usage: processRequest(userId, requestId)
-processRequest('user123', 'REQ-3001');
-Then run the script via terminal: node index.js
+processRequest('user123', 'REQ-3001');```
+Then run the script via terminal:
+```node index.js```
 
 4. Verify Results
 
@@ -87,8 +88,16 @@ data/user123/REQ-3001/output/detailed.json: Contains all matches found and norma
 
 data/user123/REQ-3001/output/consolidated.json: Contains the final match result and timestamp
 
+## Technical Implementation Details
 
-## 📊 Sample Output
+Similarity Logic: Calculated as (LongerLength - Distance) / LongerLength.
+
+Normalization Path: Input is lowercased, non-alphanumeric characters are removed, and name components are sorted alphabetically before comparison.
+
+Idempotency: If an output/ directory already exists for a specific requestId, the service skips processing to save resources.
+
+
+## Sample Output
 
 After processing, the system generates a result like this:
 
