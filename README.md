@@ -46,12 +46,6 @@ The service utilizes a **Levenshtein Distance** algorithm to calculate a similar
 
 * Node.js (LTS version recommended)
 
-### Installation
-
-```bash
-npm install
-
-```
 ## How to Run the Service
 The service is designed as a modular function that processes files from the local filesystem. Follow these steps to execute a screening:
 
