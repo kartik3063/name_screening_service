@@ -52,7 +52,9 @@ The service is designed as a modular function that processes files from the loca
 1. Installation
 Ensure you have Node.js installed, then clone the repository and install dependencies:
 
-```npm install```
+```
+npm install
+```
 
 2. Prepare the Input Data
 
@@ -76,9 +78,13 @@ Example Usage:
 const processRequest = require('./index');
 
 // Usage: processRequest(userId, requestId)
-processRequest('user123', 'REQ-3001');```
+processRequest('user123', 'REQ-3001');
+```
+
 Then run the script via terminal:
-```node index.js```
+```
+node index.js
+```
 
 4. Verify Results
 
