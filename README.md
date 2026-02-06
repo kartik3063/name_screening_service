@@ -54,7 +54,7 @@ Ensure you have Node.js installed, then clone the repository and install depende
 
 npm install
 
-3. Prepare the Input Data
+2. Prepare the Input Data
 
 The service expects a specific folder hierarchy to locate the input files:
 
